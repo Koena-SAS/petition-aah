@@ -134,7 +134,11 @@ async function waitDelay(ms) {
   return new Promise((res) => setTimeout(res, ms));
 }
 
-function* generateNextWaitTime(initialTimeToWait, growingFactor, growingLimit) {
+export function* generateNextWaitTime(
+  initialTimeToWait,
+  growingFactor,
+  growingLimit
+) {
   let time = initialTimeToWait;
   while (true) {
     const nextTime = time * growingFactor;
