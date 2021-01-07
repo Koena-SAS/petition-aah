@@ -1,0 +1,45 @@
+.corner {
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  &__svg {
+    fill: #151513;
+    color: #fff;
+    border: 0;
+  }
+
+  &__octo-arm {
+    transform-origin: 130px 106px;
+  }
+
+  &:hover .corner__octo-arm {
+    animation: octocat-wave 560ms ease-in-out;
+  }
+
+  @keyframes octocat-wave {
+    0%,
+    100% {
+      transform: rotate(0);
+    }
+    20%,
+    60% {
+      transform: rotate(-25deg);
+    }
+    40%,
+    80% {
+      transform: rotate(10deg);
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .corner {
+    &:hover .corner__octo-arm {
+      animation: none;
+    }
+    &__octo-arm {
+      animation: octocat-wave 560ms ease-in-out;
+    }
+  }
+}
