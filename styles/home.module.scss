@@ -24,12 +24,19 @@
 .counter {
   grid-area: counter;
   margin: 5rem 4rem 5rem 5rem;
-  justify-self: end;
+  justify-self: center;
 }
 
 .content {
   grid-area: content;
   margin: 5rem;
+
+  &__title {
+    margin-top: 4rem;
+    &:first-child {
+      margin-top: 0;
+    }
+  }
 }
 
 .footer {

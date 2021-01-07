@@ -1,6 +1,7 @@
 import Head from "next/head";
-import styles from "../styles/Home.module.scss";
-import Counter from "../components/counter";
+import styles from "../styles/home.module.scss";
+import SignaturesCounter from "../components/signatures_counter";
+import DateCounter from "../components/date_counter";
 import Corner from "../components/corner";
 
 export default function Home() {
@@ -41,11 +42,12 @@ export default function Home() {
 
       <main role="main" className={styles.main} id="main">
         <section className={styles.counter} id="counter">
-          <Counter />
+          <DateCounter />
+          <SignaturesCounter />
         </section>
 
         <section className={styles.content} id="content">
-          <h3>De quoi s'agit-il ?</h3>
+          <h3 className={styles.content__title}>De quoi s'agit-il ?</h3>
           <p className={styles.description}>
             Une pétition citoyenne déposée sur le site du Sénat propose la
             désolidarisation des revenus du conjoint pour le paiement de
@@ -54,7 +56,7 @@ export default function Home() {
             question, ce qui pourrait donner lieu à une proposition de loi.
           </p>
 
-          <h3>Comment signer ?</h3>
+          <h3 className={styles.content__title}>Comment signer ?</h3>
           <p>
             La signature est une procédure officielle se passant sur le site du
             Sénat. Pour pouvoir signer il faut utiliser France Connect qui offre

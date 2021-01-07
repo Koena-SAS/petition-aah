@@ -1,4 +1,4 @@
-import styles from "../styles/Corner.module.scss";
+import styles from "../styles/corner.module.scss";
 
 export default function Corner() {
   return (

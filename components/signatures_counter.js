@@ -1,10 +1,10 @@
 import { useEffect, useState, useRef } from "react";
-import styles from "../styles/Counter.module.scss";
+import styles from "../styles/signatures_counter.module.scss";
 import PropTypes from "prop-types";
 import axios from "axios";
 
 /**
- * Counter for the AAH senate 416 initiative.
+ * Counter for the signatures of the AAH senate 416 initiative.
  *
  * Fetches and displays the number of people supporting the initiative,
  * updating regularly.
