@@ -1,6 +1,6 @@
 import { render, waitFor } from "@testing-library/react";
 import axios from "axios";
-import Counter from "./counter";
+import Counter from "./signatures_counter";
 
 jest.mock("axios");
 
