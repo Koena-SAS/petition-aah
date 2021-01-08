@@ -7,7 +7,7 @@ export default function TextContent() {
   return (
     <div className={styles.content}>
       <h3 className={styles.content__title}>De quoi s'agit-il ?</h3>
-      <p className={styles.description}>
+      <p className={styles.content__description}>
         Une pétition citoyenne déposée sur le site du Sénat propose la
         désolidarisation des revenus du conjoint pour le paiement de
         l'Allocation aux Adultes Handicapés (AAH). Si cette pétition atteint 100
@@ -16,7 +16,7 @@ export default function TextContent() {
       </p>
 
       <h3 className={styles.content__title}>Comment signer ?</h3>
-      <p>
+      <p className={styles.content__description}>
         La signature est une procédure officielle se passant sur le site du
         Sénat. Pour pouvoir signer il faut utiliser France Connect qui offre
         plusieurs moyens de s'authentifier, par exemple avec son compte

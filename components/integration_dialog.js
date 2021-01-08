@@ -9,8 +9,9 @@ import styles from "../styles/integration_dialog.module.scss";
  * Modal for iframe integration content.
  */
 export default function IntegrationDialog({ onClose, open }) {
-  const iframeCommand =
-    '<iframe src="http://localhost:3000/iframe" title="Signez pour l\'indépendance des personnes handicapées"></iframe>';
+  const iframeCommand = process.browser
+    ? `<iframe src="${window.location.href}iframe/" title="Signez pour l'indépendance des personnes handicapées"></iframe>`
+    : "";
   const textArea = useRef();
   const handleCopy = () => {
     textArea.current.select();
@@ -19,22 +20,22 @@ export default function IntegrationDialog({ onClose, open }) {
   return (
     <Dialog
       onClose={onClose}
-      aria-labelledby="simple-dialog-title"
+      aria-labelledby="integration-dialog-label"
       open={open}
       PaperProps={{
         "aria-modal": "true",
-        "aria-label": `Intégrer l'iframe sur votre site`,
       }}
       maxWidth="lg"
     >
       <div className={styles.container}>
         <IframeContent />
         <div className={styles.container__integration}>
-          <p className={styles.container__text}>
+          <p className={styles.container__text} id="integration-dialog-label">
             Intégrer les compteurs sur votre site
           </p>
           <textarea
             value={iframeCommand}
+            readOnly
             ref={textArea}
             className={styles.container__code}
           ></textarea>

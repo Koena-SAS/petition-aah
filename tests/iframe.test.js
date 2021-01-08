@@ -5,6 +5,6 @@ it("displays main elements", () => {
   const { getByText } = render(<Iframe />);
   const dateCounter = getByText("jours");
   expect(dateCounter).toBeInTheDocument();
-  const signaturesCounter = getByText(/Nombre de signatures/);
+  const signaturesCounter = getByText(/Nombre total de signatures/);
   expect(signaturesCounter).toBeInTheDocument();
 });
