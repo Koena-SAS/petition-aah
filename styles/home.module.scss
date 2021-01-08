@@ -32,6 +32,11 @@
   grid-area: counter;
   margin: 5rem 1rem;
   justify-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  max-height: 25rem;
+
   @media (max-width: 727px) {
     margin: 2rem 1rem;
   }
@@ -42,13 +47,6 @@
   margin: 5rem;
   @media (max-width: 727px) {
     margin: 3rem;
-  }
-
-  &__title {
-    margin-top: 4rem;
-    &:first-child {
-      margin-top: 0;
-    }
   }
 }
 
