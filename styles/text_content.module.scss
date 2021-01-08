@@ -1,0 +1,13 @@
+.content {
+  &__title {
+    margin-top: 4rem;
+    &:first-child {
+      margin-top: 0.4rem;
+    }
+  }
+
+  &__description {
+    line-height: 1.6rem;
+    word-spacing: 0.03rem;
+  }
+}

@@ -44,7 +44,7 @@ La page est alors disponible avec le navigateur à l'adresse [http://localhost:3
 - Les fichiers définissant un composant de page avec une URL spécifiques sont placés dans `pages/`. Tous les fichiers qui y sont, sauf ceux commençant paar `_`, seront utilisées par le router de Next.js pour créer une route.
 - Les autres composants javascript qui ne définissent pas une page vont dans `components/`
 - Les fichiers SASS sont placés dans `styles/`, on utilise les modules pour profiter du découpage des fichiers CSS, et ne charger au départ que ceux qui sont nécessaires à l'affichage de la première page.
-- Les tests vont dans des fichiers `nom_du_composant.test.js` à côté des fichiers de composants testés.
+- Les fichiers de tests sont placés dans `tests/` et nommés en fonction du fichier des composants testés : `nom_du_composant.test.js`.
 
 ### Outils qualité de code
 

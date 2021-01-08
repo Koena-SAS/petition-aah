@@ -44,7 +44,6 @@ export default function Counter({
             ).textContent
           );
           await setCountValueProgressively(fetchedValue);
-          console.log("fetchedValue: ", fetchedValue, " time to wait: ", delay);
           await waitDelay(delay);
           totalRequests.current += 1;
           if (totalRequests.current < maxTotalRequests) {
@@ -79,7 +78,7 @@ export default function Counter({
 
   return (
     <p className={styles.counter__container}>
-      Nombre de signatures :
+      <span className={styles.counter__text}>Nombre total de signatures :</span>
       <span className={styles.counter__value}>{countValue}</span>
       <br /> /100 000
     </p>

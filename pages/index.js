@@ -1,8 +1,9 @@
 import Head from "next/head";
 import styles from "../styles/home.module.scss";
-import SignaturesCounter from "../components/signatures_counter";
-import DateCounter from "../components/date_counter";
 import Corner from "../components/corner";
+import QuickAccess from "../components/quick_access";
+import TextContent from "../components/text_content";
+import CounterContent from "../components/counter_content";
 
 export default function Home() {
   return (
@@ -14,22 +15,7 @@ export default function Home() {
         </title>
       </Head>
 
-      <div role="region" aria-label="Accès rapide" className="visually-hidden">
-        <ul>
-          <li>
-            <a href="#header">Aller à l'en-tête</a>
-          </li>
-          <li>
-            <a href="#content">Aller au contenu textuel</a>
-          </li>
-          <li>
-            <a href="#counter">Aller au compteur de signature</a>
-          </li>
-          <li>
-            <a href="#footer">Aller au pied de page</a>
-          </li>
-        </ul>
-      </div>
+      <QuickAccess />
 
       <header role="banner" className={styles.header} id="header">
         <Corner />
@@ -42,28 +28,11 @@ export default function Home() {
 
       <main role="main" className={styles.main} id="main">
         <section className={styles.counter} id="counter">
-          <DateCounter />
-          <SignaturesCounter />
+          <CounterContent />
         </section>
 
         <section className={styles.content} id="content">
-          <h3 className={styles.content__title}>De quoi s'agit-il ?</h3>
-          <p className={styles.description}>
-            Une pétition citoyenne déposée sur le site du Sénat propose la
-            désolidarisation des revenus du conjoint pour le paiement de
-            l'Allocation aux Adultes Handicapés (AAH). Si cette pétition atteint
-            100 000 signatures dans les 6 mois, le Sénat devra examiner la
-            question, ce qui pourrait donner lieu à une proposition de loi.
-          </p>
-
-          <h3 className={styles.content__title}>Comment signer ?</h3>
-          <p>
-            La signature est une procédure officielle se passant sur le site du
-            Sénat. Pour pouvoir signer il faut utiliser France Connect qui offre
-            plusieurs moyens de s'authentifier, par exemple avec son compte
-            d'assurance maladie ou des impôts, ou encore son numéro de téléphone
-            pour les abonnés Orange.{" "}
-          </p>
+          <TextContent />
         </section>
       </main>
 

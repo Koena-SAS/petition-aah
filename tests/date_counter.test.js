@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react";
-import Counter, { dateDiff } from "./date_counter";
+import Counter, { dateDiff } from "../components/date_counter";
 
 it("displays date elements", () => {
   const { getByText } = render(<Counter />);

@@ -27,7 +27,7 @@ export default function DateCounter({ expirationDate, updateInterval }) {
 
   return (
     <div className={styles.counter__container}>
-      Il reste :
+      <span className={styles.counter__text}>Temps restant pour signer :</span>
       <div className={styles.counter__units}>
         <div className={styles.counter__unit}>
           <span className={styles.counter__value}>{remainingTime.days}</span>{" "}

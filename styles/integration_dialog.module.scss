@@ -1,0 +1,40 @@
+.container {
+  display: flex;
+  flex-direction: row;
+
+  &__integration {
+    border-top: none;
+    border-left: solid 1px #bbb;
+    box-shadow: 3px 0 5px #bbb inset;
+    padding: 1rem 2rem 1rem 3.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__text {
+    margin-bottom: 2.5rem;
+    font-size: 1.2rem;
+  }
+
+  &__code {
+    flex: 1;
+    font-size: 0.9rem;
+    min-height: 8rem;
+  }
+
+  &__buttons {
+    display: flex;
+    margin-left: auto;
+    padding-top: 1rem;
+  }
+
+  @media (max-width: 703px) {
+    flex-direction: column;
+
+    &__integration {
+      border-left: none;
+      border-top: solid 1px #bbb;
+      box-shadow: 0 3px 5px #bbb inset;
+    }
+  }
+}
