@@ -6,7 +6,27 @@ Toutes les contributions sont les bienvenues, que ce soit des reportings de bugs
 
 ### Installation locale
 
+#### Prérequis
+
 Pour installer le projet, il faut disposer d'une version installée de [Node.js](https://nodejs.org/fr/) et de [Yarn](https://yarnpkg.com/).
+
+Sous ubuntu on peut les installer par exemple avec les commandes suivantes :
+([trouvé sur la documentation d'ubuntu](https://doc.ubuntu-fr.org/nodejs#depuis_un_personal_package_archives_ppa_depots_officiels_nodesource))
+
+```bash
+wget -qO- https://deb.nodesource.com/setup_14.x | sudo -E bash -
+sudo apt install nodejs
+```
+
+([trouvé sur la documentation de yarn](https://classic.yarnpkg.com/en/docs/install/#debian-stable))
+
+```bash
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo apt update && sudo apt install yarn
+```
+
+#### Installation du projet
 
 Par la suite l'installation du projet et le serveur de développement se font avec les commandes suivantes :
 

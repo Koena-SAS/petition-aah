@@ -20,6 +20,8 @@ Vous pouvez alors lancer le serveur de développement avec :
 yarn dev
 ```
 
+La page sera alors disponible à l'adresse [http://localhost:3000](http://localhost:3000) avec votre navigateur.
+
 ### Déploiement
 
 Le déploiement des fichiers statiques se fait via la commande :
@@ -30,8 +32,6 @@ yarn build
 
 Les fichiers statiques sont alors générés dans le dossier `out/`.
 
-La page sera alors disponible à l'adresse [http://localhost:3000](http://localhost:3000) avec votre navigateur.
-
 # Licence
 
-Ce projet est sous licence AGPL. Le texte de la licence est dans el fichier [LICENCE](LICENCE)
+Ce projet est sous licence AGPL. Le texte de la licence est dans le fichier [LICENCE](LICENCE)
