@@ -1,6 +1,6 @@
 import { render, waitFor } from "@testing-library/react";
 import axios from "axios";
-import Counter from "./signatures_counter";
+import Counter, { generateNextWaitTime } from "./signatures_counter";
 
 jest.mock("axios");
 
@@ -103,3 +103,22 @@ describe("Security tests", () => {
 async function waitDelay(ms) {
   return new Promise((res) => setTimeout(res, ms));
 }
+
+describe("generateNextWaitTime helper", () => {
+  it("generates elements correctly with known values", () => {
+    const generator = generateNextWaitTime(135, 1.35, 100000);
+    for (let i = 1; i < 20; i++) {
+      expect(generator.next().value).toBeCloseTo(135 * Math.pow(1.35, i));
+    }
+  });
+
+  it("does not generate elements above growingLimit", () => {
+    const generator = generateNextWaitTime(10, 1.35, 50);
+    for (let i = 0; i < 5; i++) {
+      expect(generator.next().value).not.toEqual(50);
+    }
+    for (let i = 1; i < 20; i++) {
+      expect(generator.next().value).toEqual(50);
+    }
+  });
+});
