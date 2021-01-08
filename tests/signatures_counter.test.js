@@ -1,6 +1,8 @@
 import { render, waitFor } from "@testing-library/react";
 import axios from "axios";
-import Counter, { generateNextWaitTime } from "./signatures_counter";
+import Counter, {
+  generateNextWaitTime,
+} from "../components/signatures_counter";
 
 jest.mock("axios");
 

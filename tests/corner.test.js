@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react";
-import Corner from "./corner";
+import Corner from "../components/corner";
 
 it("displays the link", () => {
   const { getByLabelText } = render(<Corner />);
