@@ -17,7 +17,7 @@ class MyDocument extends Document {
       ...initialProps,
       // Styles fragment is rendered after the app and page rendering finish.
       // to avoid flickering screen with material ui components
-      // cf. https://github.com/hadnazzar/nextjs-with-material-ui/blob/master/pages/_document.js
+      // cf. https://github.com/mui-org/material-ui/blob/master/examples/nextjs/pages/_document.js
       styles: [
         ...React.Children.toArray(initialProps.styles),
         sheets.getStyleElement(),
