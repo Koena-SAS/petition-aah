@@ -13,19 +13,17 @@ afterEach(() => {
 });
 
 it("displays main elements", () => {
-  const { getByText } = render(<CounterContent />);
+  const { getByText } = render(<CounterContent format="block" />);
   const dateCounter = getByText("jours");
   expect(dateCounter).toBeInTheDocument();
-  const signaturesCounter = getByText(/Nombre total de signatures/);
-  expect(signaturesCounter).toBeInTheDocument();
-  const buttonSign = getByText(/Signez/);
-  expect(buttonSign).toBeInTheDocument();
   const buttonIntegrate = getByText(/Intégrer/);
   expect(buttonIntegrate).toBeInTheDocument();
 });
 
 it("displays integration dialog when click on integrate button", () => {
-  const { getByLabelText, getByText } = render(<CounterContent />);
+  const { getByLabelText, getByText } = render(
+    <CounterContent format="block" />
+  );
   const integrationButton = getByText("Intégrer");
   fireEvent.click(integrationButton);
   const dialog = getByLabelText("Intégrer les compteurs sur votre site");
@@ -34,7 +32,7 @@ it("displays integration dialog when click on integrate button", () => {
 
 it("closes integration dialog when click on close button", async () => {
   const { queryByLabelText, getByLabelText, getByText } = render(
-    <CounterContent />
+    <CounterContent format="block" />
   );
   const integrationButton = getByText("Intégrer");
   fireEvent.click(integrationButton);

@@ -12,7 +12,7 @@ export default function Iframe() {
       </Head>
 
       <main role="main">
-        <IframeContent />
+        <IframeContent format="block" />
       </main>
     </>
   );

@@ -1,8 +1,8 @@
 import { render } from "@testing-library/react";
-import IframeContent from "../components/iframe_content";
+import CounterBlock from "../../components/counter_elements/counter_block";
 
 it("displays main elements", () => {
-  const { getByText } = render(<IframeContent format="block" />);
+  const { getByText } = render(<CounterBlock />);
   const dateCounter = getByText("jours");
   expect(dateCounter).toBeInTheDocument();
   const signaturesCounter = getByText(/Nombre total de signatures/);

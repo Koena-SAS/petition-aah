@@ -1,7 +1,9 @@
 import { useEffect, useState, useRef } from "react";
-import styles from "../styles/signatures_counter.module.scss";
 import PropTypes from "prop-types";
 import axios from "axios";
+import SignaturesLayoutBlock from "./signatures_layout_block";
+
+const MAX_SIGNATURES = 100000;
 
 /**
  * Counter for the signatures of the AAH senate 416 initiative.
@@ -19,8 +21,17 @@ export default function Counter({
   maxTotalRequests,
   countAnimationFrames,
   countAnimationDelay,
+  format,
 }) {
-  const [countValue, setCountValue] = useState(value);
+  const getInitialValue = () => {
+    if (value !== null) {
+      return value;
+    } else {
+      return format === "block" ? 0 : MAX_SIGNATURES;
+    }
+  };
+
+  const [countValue, setCountValue] = useState(getInitialValue());
   const [delay, setDelay] = useState(initialTimeToWait);
   const waitTimeGenerator = useRef(
     generateNextWaitTime(initialTimeToWait, growingFactor, growingLimit)
@@ -43,7 +54,11 @@ export default function Counter({
               "#initiative-416-votes-count span.progress__bar__number"
             ).textContent
           );
-          await setCountValueProgressively(fetchedValue);
+          if (format === "block") {
+            await countUpValueProgressively(fetchedValue);
+          } else {
+            await countDownValueProgressively(MAX_SIGNATURES - fetchedValue);
+          }
           await waitDelay(delay);
           totalRequests.current += 1;
           if (totalRequests.current < maxTotalRequests) {
@@ -52,16 +67,17 @@ export default function Counter({
         })
         .catch(() => {});
     }
-    async function setCountValueProgressively(fetchedValue) {
-      if (fetchedValue > countValue) {
+
+    async function countUpValueProgressively(targetValue) {
+      if (targetValue > countValue) {
         if (!countAnimationFrames) {
-          setCountValue(fetchedValue);
+          setCountValue(targetValue);
         } else {
           let increment =
-            (fetchedValue - countValue - 0.1) / countAnimationFrames;
+            (Math.abs(targetValue - countValue) - 0.1) / countAnimationFrames;
           let i = countValue;
           const interval = setInterval(() => {
-            if (i > fetchedValue) {
+            if (i > targetValue) {
               clearInterval(interval);
             } else {
               setCountValue(Math.ceil(i));
@@ -71,17 +87,36 @@ export default function Counter({
         }
       }
     }
+
+    async function countDownValueProgressively(targetValue) {
+      if (targetValue < countValue) {
+        if (!countAnimationFrames) {
+          setCountValue(targetValue);
+        } else {
+          let decrement =
+            (Math.abs(targetValue - countValue) - 0.1) / countAnimationFrames;
+          let i = countValue;
+          const interval = setInterval(() => {
+            if (i < targetValue) {
+              clearInterval(interval);
+            } else {
+              setCountValue(Math.floor(i));
+            }
+            i -= decrement;
+          }, countAnimationDelay);
+        }
+      }
+    }
+
     if (totalRequests.current < maxTotalRequests) {
       updateInitiative();
     }
   }, [delay]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  return (
-    <p className={styles.counter__container}>
-      <span className={styles.counter__text}>Nombre total de signatures :</span>
-      <span className={styles.counter__value}>{countValue}</span>
-      <br /> /100 000
-    </p>
+  return format === "block" ? (
+    <SignaturesLayoutBlock count={countValue} />
+  ) : (
+    countValue
   );
 }
 
@@ -117,10 +152,14 @@ Counter.propTypes = {
    * The time to wait between each updates that will be used to animate the counter.
    */
   countAnimationDelay: PropTypes.number,
+  /**
+   * The display format of the date counter.
+   */
+  format: PropTypes.oneOf(["block", "banner"]),
 };
 
 Counter.defaultProps = {
-  value: 0,
+  value: null,
   initialTimeToWait: 3000,
   growingFactor: 1.2,
   growingLimit: 86400000,
