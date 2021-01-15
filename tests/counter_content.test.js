@@ -14,12 +14,8 @@ afterEach(() => {
 
 it("displays main elements", () => {
   const { getByText } = render(<CounterContent />);
-  const dateCounter = getByText("jours");
+  const dateCounter = getByText(/J-/);
   expect(dateCounter).toBeInTheDocument();
-  const signaturesCounter = getByText(/Nombre total de signatures/);
-  expect(signaturesCounter).toBeInTheDocument();
-  const buttonSign = getByText(/Signez/);
-  expect(buttonSign).toBeInTheDocument();
   const buttonIntegrate = getByText(/Intégrer/);
   expect(buttonIntegrate).toBeInTheDocument();
 });

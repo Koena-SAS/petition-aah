@@ -1,24 +1,19 @@
-import DateCounter from "./date_counter";
-import SignaturesCounter from "./signatures_counter";
+import CounterBanner from "./counter_elements/counter_banner";
+import CounterBlock from "./counter_elements/counter_block";
 import styles from "../styles/iframe_content.module.scss";
-import Button from "@material-ui/core/Button";
+import PropTypes from "prop-types";
 
-export default function IframeContent() {
+export default function IframeContent({ format }) {
   return (
     <div className={styles.container}>
-      <DateCounter />
-      <SignaturesCounter />
-      <Button
-        variant="contained"
-        href="https://petitions.senat.fr/initiatives/i-416"
-        style={{
-          textTransform: "none",
-          backgroundColor: "#333",
-          color: "white",
-        }}
-      >
-        Signez la pétition sur le site du Sénat
-      </Button>
+      {format === "block" ? <CounterBlock /> : <CounterBanner />}
     </div>
   );
 }
+
+IframeContent.propTypes = {
+  /**
+   * The display format of the date counter.
+   */
+  format: PropTypes.oneOf(["block", "banner"]),
+};

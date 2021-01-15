@@ -1,11 +1,18 @@
 import { render } from "@testing-library/react";
-import Counter, { dateDiff } from "../components/date_counter";
+import Counter, {
+  dateDiff,
+} from "../../components/counter_elements/date_counter";
 
-it("displays date elements", () => {
-  const { getByText } = render(<Counter />);
+it("displays correct date elements with block format", () => {
+  const { getByText } = render(<Counter format="block" />);
   expect(getByText("jours")).toBeInTheDocument();
   expect(getByText("heures")).toBeInTheDocument();
   expect(getByText("minutes")).toBeInTheDocument();
+});
+
+it("displays correct date elements with banner format", () => {
+  const { getByText } = render(<Counter format="banner" />);
+  expect(getByText(/[0-9]+/)).toBeInTheDocument();
 });
 
 describe("dateDiff helper", () => {

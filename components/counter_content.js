@@ -1,7 +1,6 @@
 import { useState } from "react";
-import SignaturesCounter from "./signatures_counter";
-import DateCounter from "./date_counter";
 import IntegrationDialog from "./integration_dialog";
+import CounterBanner from "./counter_elements/counter_banner";
 import Button from "@material-ui/core/Button";
 import CodeIcon from "@material-ui/icons/Code";
 
@@ -21,19 +20,7 @@ export default function CounterContent() {
   return (
     <>
       <IntegrationDialog open={open} onClose={handleClose} />
-      <DateCounter />
-      <SignaturesCounter />
-      <Button
-        variant="contained"
-        href="https://petitions.senat.fr/initiatives/i-416"
-        style={{
-          textTransform: "none",
-          backgroundColor: "#333",
-          color: "white",
-        }}
-      >
-        Signez la pétition sur le site du Sénat
-      </Button>
+      <CounterBanner />
       <Button
         variant="contained"
         size="small"

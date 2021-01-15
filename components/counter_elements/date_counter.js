@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import styles from "../styles/date_counter.module.scss";
 import PropTypes from "prop-types";
+import DateLayoutBlock from "./date_layout_block";
 
 /**
  * Counter for the expiration of the AAH senate 416 initiative.
@@ -8,7 +8,11 @@ import PropTypes from "prop-types";
  * Displays the remaining time before the expiration of the petition,
  * updating regularly.
  */
-export default function DateCounter({ expirationDate, updateInterval }) {
+export default function DateCounter({
+  expirationDate,
+  updateInterval,
+  format,
+}) {
   const [remainingTime, setRemainingTime] = useState(
     dateDiff(new Date(), expirationDate)
   );
@@ -25,24 +29,10 @@ export default function DateCounter({ expirationDate, updateInterval }) {
     }, updateInterval * 1000);
   });
 
-  return (
-    <div className={styles.counter__container}>
-      <span className={styles.counter__text}>Temps restant pour signer :</span>
-      <div className={styles.counter__units}>
-        <div className={styles.counter__unit}>
-          <span className={styles.counter__value}>{remainingTime.days}</span>{" "}
-          jours
-        </div>
-        <div className={styles.counter__unit}>
-          <span className={styles.counter__value}>{remainingTime.hours}</span>{" "}
-          heures
-        </div>
-        <div className={styles.counter__unit}>
-          <span className={styles.counter__value}>{remainingTime.minutes}</span>{" "}
-          minutes
-        </div>
-      </div>
-    </div>
+  return format === "block" ? (
+    <DateLayoutBlock remainingTime={remainingTime} />
+  ) : (
+    remainingTime.days
   );
 }
 
@@ -55,6 +45,10 @@ DateCounter.propTypes = {
    * The interval between two updates of the displayed date.
    */
   updateInterval: PropTypes.number,
+  /**
+   * The display format of the date counter.
+   */
+  format: PropTypes.oneOf(["block", "banner"]),
 };
 
 DateCounter.defaultProps = {
