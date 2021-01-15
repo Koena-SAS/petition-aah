@@ -1,15 +1,13 @@
 import { useState } from "react";
 import IntegrationDialog from "./integration_dialog";
 import CounterBanner from "./counter_elements/counter_banner";
-import CounterBlock from "./counter_elements/counter_block";
 import Button from "@material-ui/core/Button";
 import CodeIcon from "@material-ui/icons/Code";
-import PropTypes from "prop-types";
 
 /**
  * Date and signatures counter, with integration functionnality.
  */
-export default function CounterContent({ format }) {
+export default function CounterContent() {
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
@@ -22,7 +20,7 @@ export default function CounterContent({ format }) {
   return (
     <>
       <IntegrationDialog open={open} onClose={handleClose} />
-      {format === "block" ? <CounterBlock /> : <CounterBanner />}
+      <CounterBanner />
       <Button
         variant="contained"
         size="small"
@@ -35,10 +33,3 @@ export default function CounterContent({ format }) {
     </>
   );
 }
-
-CounterContent.propTypes = {
-  /**
-   * The display format of the date counter.
-   */
-  format: PropTypes.oneOf(["block", "banner"]),
-};

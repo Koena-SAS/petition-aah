@@ -28,7 +28,7 @@ export default function Home() {
 
       <main role="main" className={styles.main} id="main">
         <section className={styles.counter} id="counter">
-          <CounterContent format="banner" />
+          <CounterContent />
         </section>
 
         <section className={styles.content} id="content">
