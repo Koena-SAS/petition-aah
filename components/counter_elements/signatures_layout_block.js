@@ -1,4 +1,4 @@
-import styles from "../../styles/signatures_counter.module.scss";
+import styles from "../../styles/counter_elements/signatures_counter.module.scss";
 import PropTypes from "prop-types";
 
 /**

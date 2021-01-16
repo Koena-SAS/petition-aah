@@ -1,7 +1,7 @@
 import DateCounter from "./date_counter";
 import SignaturesCounter from "./signatures_counter";
 import PropTypes from "prop-types";
-import styles from "../../styles/counter_banner.module.scss";
+import styles from "../../styles/counter_elements/counter_banner.module.scss";
 
 /**
  * Displays counters information in the banner format.
