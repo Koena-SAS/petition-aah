@@ -18,5 +18,5 @@ SignaturesLayoutBlock.propTypes = {
   /**
    * The number of total signatures already collected.
    */
-  count: PropTypes.number,
+  count: PropTypes.number.isRequired,
 };
