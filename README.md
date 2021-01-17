@@ -32,6 +32,6 @@ yarn build
 
 Les fichiers statiques sont alors générés dans le dossier `out/`.
 
-# Licence
+## Licence
 
 Ce projet est sous licence AGPL. Le texte de la licence est dans le fichier [LICENCE](LICENCE)

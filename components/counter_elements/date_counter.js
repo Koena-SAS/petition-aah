@@ -48,7 +48,7 @@ DateCounter.propTypes = {
   /**
    * The display format of the date counter.
    */
-  format: PropTypes.oneOf(["block", "banner"]),
+  format: PropTypes.oneOf(["block", "banner"]).isRequired,
 };
 
 DateCounter.defaultProps = {

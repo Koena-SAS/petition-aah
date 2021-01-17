@@ -28,7 +28,20 @@ class MyDocument extends Document {
   render() {
     return (
       <Html lang="fr">
-        <Head />
+        <Head>
+          <link
+            rel="preload"
+            href="/fonts/Luciole/Luciole-Regular.ttf"
+            as="font"
+            crossOrigin=""
+          />
+          <link
+            rel="preload"
+            href="/fonts/Luciole/Luciole-Bold.ttf"
+            as="font"
+            crossOrigin=""
+          />
+        </Head>
         <body>
           <Main />
           <NextScript />
