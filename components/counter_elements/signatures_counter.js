@@ -116,7 +116,7 @@ export default function Counter({
   return format === "block" ? (
     <SignaturesLayoutBlock count={countValue} />
   ) : (
-    countValue
+    countValue.toLocaleString()
   );
 }
 
