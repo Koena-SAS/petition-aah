@@ -45,11 +45,10 @@ describe("Initial behavior", () => {
     });
 
     it("displays 0 at the beginning if no value provided and format block", async () => {
-      const { getByText, queryByText } = render(
+      const { getByText } = render(
         <Counter countAnimationFrames={0} maxTotalRequests={1} format="block" />
       );
       expect(getByText("0")).toBeInTheDocument();
-      expect(queryByText("100 000")).not.toBeInTheDocument();
       await waitFor(() => expect(axios.get).toHaveBeenCalledTimes(1));
     });
   });
@@ -76,7 +75,7 @@ describe("Initial behavior", () => {
           format="banner"
         />
       );
-      expect(getByText("100 000")).toBeInTheDocument();
+      expect(getByText(/100.000/)).toBeInTheDocument();
       await waitFor(() => expect(axios.get).toHaveBeenCalledTimes(1));
     });
   });
@@ -138,7 +137,7 @@ describe("Fetching value", () => {
         />
       );
       await waitFor(() => expect(axios.get).toHaveBeenCalledTimes(1));
-      expect(getByText("99 500")).toBeInTheDocument();
+      expect(getByText(/99.500/)).toBeInTheDocument();
     });
 
     it("refetches and displays changed counter value", async () => {
@@ -151,10 +150,10 @@ describe("Fetching value", () => {
         />
       );
       await waitFor(() => expect(axios.get).toHaveBeenCalledTimes(1));
-      expect(getByText("99 500")).toBeInTheDocument();
+      expect(getByText(/99.500/)).toBeInTheDocument();
       axios.get.mockResolvedValue(senatGetResponse);
       await waitFor(() => expect(axios.get).toHaveBeenCalledTimes(2));
-      expect(getByText("99 347")).toBeInTheDocument();
+      expect(getByText(/99.347/)).toBeInTheDocument();
     });
   });
 });
