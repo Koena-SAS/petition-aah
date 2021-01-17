@@ -11,6 +11,8 @@ export default function CounterBanner({ color }) {
   return (
     <a
       href="https://petitions.senat.fr/initiatives/i-416"
+      target="_blank"
+      rel="noreferrer"
       className={`${styles.counters} ${countersColor}`}
     >
       J-

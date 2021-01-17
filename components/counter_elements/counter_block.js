@@ -18,6 +18,8 @@ export default function CounterBlock() {
           backgroundColor: "#333",
           color: "white",
         }}
+        target="_blank"
+        rel="noreferrer"
       >
         Signez la pétition sur le site du Sénat
       </Button>

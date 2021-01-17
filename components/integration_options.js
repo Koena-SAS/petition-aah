@@ -16,9 +16,18 @@ export default function IntegrationOptions({
   setFormat,
   styles,
 }) {
-  const iframeCommand = process.browser
-    ? `<iframe src="${window.location.href}iframe/" title="Signez pour l'indépendance des personnes handicapées"></iframe>`
-    : "";
+  const getIframeCommand = () => {
+    const title = '"Signez pour l\'indépendance des personnes handicapées"';
+    if (format === "block") {
+      return `<iframe src="${window.location.href}iframe/block/" title=${title} style="border: 0; width: 335px; height: 387px;"></iframe>`;
+    } else if (format === "banner" && color === "light") {
+      return `<iframe src="${window.location.href}iframe/banner/light/" title=${title} style="border: 0; width: 100%;"></iframe>`;
+    } else {
+      return `<iframe src="${window.location.href}iframe/banner/dark/" title=${title} style="border: 0; width: 100%;"></iframe>`;
+    }
+  };
+
+  const iframeCommand = process.browser ? getIframeCommand() : "";
   const textArea = useRef();
 
   const handleCopy = () => {
