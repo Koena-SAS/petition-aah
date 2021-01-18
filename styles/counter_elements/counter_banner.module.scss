@@ -1,11 +1,27 @@
 .counters {
+  font-size: 1.7rem;
+  padding: 0.7rem 1.5rem;
+  font-family: system-ui, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
+    Droid Sans, Helvetica Neue, sans-serif;
+  font-weight: bold;
+  letter-spacing: 0.05rem;
+
+  @media (max-width: 560px) {
+    font-size: 1.5rem;
+  }
+
   &.dark {
     color: white;
-    background-color: black;
+    background-color: #313e50;
   }
 
   &.light {
     color: black;
     background-color: white;
+  }
+
+  &.customDark {
+    color: #f9d5cc;
+    background-color: #313e50;
   }
 }

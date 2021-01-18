@@ -1,0 +1,39 @@
+.integration {
+  background-color: transparent;
+  border: none;
+  color: #f9d5cc;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 9.5rem;
+
+  &__svg {
+    height: 3rem;
+
+    @media (max-width: 560px) {
+      height: 2.5rem;
+    }
+  }
+
+  &__text {
+    width: 0rem;
+    font-size: 1.4rem;
+    overflow: hidden;
+    transition: width 0.4s ease-in;
+    position: absolute;
+    left: 4rem;
+    font-weight: bold;
+    font-family: system-ui, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
+      Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+
+    @media (max-width: 560px) {
+      font-size: 1.3rem;
+    }
+  }
+
+  &:hover &__text {
+    width: 5.5rem;
+    transition: width 0.4s ease-in;
+  }
+}

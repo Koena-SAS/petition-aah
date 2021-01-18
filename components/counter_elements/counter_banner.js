@@ -7,7 +7,21 @@ import styles from "../../styles/counter_elements/counter_banner.module.scss";
  * Displays counters information in the banner format.
  */
 export default function CounterBanner({ color }) {
-  const countersColor = color === "dark" ? styles.dark : styles.light;
+  let countersColor;
+  switch (color) {
+    case "dark":
+      countersColor = styles.dark;
+      break;
+    case "light":
+      countersColor = styles.light;
+      break;
+    case "customDark":
+      countersColor = styles.customDark;
+      break;
+    default:
+      countersColor = styles.dark;
+  }
+
   return (
     <a
       href="https://petitions.senat.fr/initiatives/i-416"
@@ -26,7 +40,7 @@ CounterBanner.propTypes = {
   /**
    * The color of the date counter.
    */
-  color: PropTypes.oneOf(["dark", "light"]),
+  color: PropTypes.oneOf(["dark", "light", "customDark"]),
 };
 
 CounterBanner.defaultProps = {

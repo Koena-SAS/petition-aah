@@ -21,9 +21,9 @@ export default function IntegrationOptions({
     if (format === "block") {
       return `<iframe src="${window.location.href}iframe/block/" title=${title} style="border: 0; width: 335px; height: 387px;"></iframe>`;
     } else if (format === "banner" && color === "light") {
-      return `<iframe src="${window.location.href}iframe/banner/light/" title=${title} style="border: 0; width: 100%;"></iframe>`;
+      return `<iframe src="${window.location.href}iframe/banner/light/" title=${title} style="border: 0; width: 100%; height: 56px;"></iframe>`;
     } else {
-      return `<iframe src="${window.location.href}iframe/banner/dark/" title=${title} style="border: 0; width: 100%;"></iframe>`;
+      return `<iframe src="${window.location.href}iframe/banner/dark/" title=${title} style="border: 0; width: 100%; height: 56px;"></iframe>`;
     }
   };
 
