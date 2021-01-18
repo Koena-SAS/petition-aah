@@ -12,7 +12,7 @@ Si vous voulez modifier le texte visible sur la page ce sera probablement dans [
 
 ## Lancer le projet en local
 
-Une fois re dépôt cloné, il vous faudra avoir [Node.js](https://nodejs.org/fr/) (de préférence au moins la version 14) et [Yarn](https://yarnpkg.com/).
+Une fois le dépôt cloné, il vous faudra avoir [Node.js](https://nodejs.org/fr/) (de préférence au moins la version 14) et [Yarn](https://yarnpkg.com/).
 
 Vous pouvez alors lancer le serveur de développement avec :
 

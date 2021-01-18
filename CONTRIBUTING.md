@@ -44,7 +44,7 @@ La page est alors disponible avec le navigateur à l'adresse [http://localhost:3
 - Les fichiers SASS sont placés dans `styles/`, on utilise les modules pour profiter du découpage des fichiers CSS, et ne charger au départ que ceux qui sont nécessaires à l'affichage de la première page.
 - Les fichiers de tests sont placés dans `tests/` et nommés en fonction du fichier des composants testés : `nom_du_composant.test.js`.
 
-### Outils qualité de code
+### Outils de qualité de code
 
 Avant de soumettre votre contribution, veillez à ce que le code reste de bonne qualité en utilisant les outils inclus.
 
@@ -73,7 +73,7 @@ yarn test
 
 ### Documentation
 
-Si vous introduisez une nouvelle foncitonnalité, ou si vous modifiez une fonctionnalité existante, veillez à ce que la documentation reste à jour, notamment à travers les docstrings.
+Si vous introduisez une nouvelle fonctionnalité, ou si vous modifiez une fonctionnalité existante, veillez à ce que la documentation reste à jour, notamment à travers les docstrings.
 
 ### Commits
 
