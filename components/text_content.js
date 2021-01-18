@@ -15,6 +15,12 @@ export default function TextContent() {
         examiner la question, ce qui pourrait donner lieu à une proposition de
         loi.
       </p>
+      <a
+        href="https://objectifautonomie.fr/petition/pourquoi/"
+        className={styles.content__link}
+      >
+        En savoir plus sur la pétition
+      </a>
 
       <h3 className={styles.content__title}>Comment signer ?</h3>
       <p className={styles.content__description}>
@@ -24,6 +30,12 @@ export default function TextContent() {
         d'assurance maladie ou des impôts, ou encore son numéro de téléphone
         pour les abonnés Orange.{" "}
       </p>
+      <a
+        href="https://objectifautonomie.fr/petition/comment-signer/"
+        className={styles.content__link}
+      >
+        En savoir plus sur la procédure
+      </a>
     </div>
   );
 }

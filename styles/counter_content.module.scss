@@ -6,7 +6,7 @@
   display: flex;
   align-items: center;
   position: relative;
-  width: 9.5rem;
+  width: 10rem;
 
   &__svg {
     height: 3rem;
@@ -32,7 +32,8 @@
     }
   }
 
-  &:hover &__text {
+  &:hover &__text,
+  &:focus &__text {
     width: 5.5rem;
     transition: width 0.4s ease-in;
   }
