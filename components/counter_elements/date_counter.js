@@ -52,7 +52,7 @@ DateCounter.propTypes = {
 };
 
 DateCounter.defaultProps = {
-  expirationDate: new Date(2021, 2, 10, 0, 0, 0),
+  expirationDate: new Date(2021, 2, 10, 23, 59, 59),
   updateInterval: 60,
 };
 
