@@ -11,8 +11,9 @@ export default function TextContent() {
         Une pétition citoyenne déposée sur le site du Sénat propose la
         désolidarisation des revenus du conjoint pour le paiement de
         l'Allocation aux Adultes Handicapés (AAH). Si cette pétition atteint 100
-        000 signatures dans les 6 mois, le Sénat devra examiner la question, ce
-        qui pourrait donner lieu à une proposition de loi.
+        000 signatures avant le <strong>10 mars 2021</strong>, le Sénat devra
+        examiner la question, ce qui pourrait donner lieu à une proposition de
+        loi.
       </p>
 
       <h3 className={styles.content__title}>Comment signer ?</h3>
