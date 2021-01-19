@@ -36,5 +36,9 @@
   &:focus &__text {
     width: 5.5rem;
     transition: width 0.4s ease-in;
+
+    @media (max-width: 560px) {
+      width: 5.1rem;
+    }
   }
 }

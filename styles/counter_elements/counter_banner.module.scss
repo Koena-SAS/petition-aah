@@ -5,6 +5,7 @@
     Droid Sans, Helvetica Neue, sans-serif;
   font-weight: bold;
   letter-spacing: 0.05rem;
+  text-align: center;
 
   @media (max-width: 560px) {
     font-size: 1.5rem;
@@ -16,7 +17,7 @@
   }
 
   &.light {
-    color: black;
+    color: #cd440a;
     background-color: white;
   }
 

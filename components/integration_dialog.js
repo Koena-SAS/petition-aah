@@ -23,7 +23,9 @@ export default function IntegrationDialog({ onClose, open }) {
       maxWidth="lg"
     >
       <div className={styles.container}>
-        <IframeContent format={format} color={color} />
+        <div className={styles.container__iframeContent}>
+          <IframeContent format={format} color={color} />
+        </div>
         <IntegrationOptions
           format={format}
           color={color}

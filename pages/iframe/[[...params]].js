@@ -36,3 +36,21 @@ export default function Iframe() {
     </>
   );
 }
+
+export async function getStaticPaths() {
+  return {
+    paths: [
+      { params: { params: [] } },
+      { params: { params: ["block"] } },
+      { params: { params: ["banner", "dark"] } },
+      { params: { params: ["banner", "light"] } },
+    ],
+    fallback: false,
+  };
+}
+
+export const getStaticProps = async () => {
+  return {
+    props: {},
+  };
+};

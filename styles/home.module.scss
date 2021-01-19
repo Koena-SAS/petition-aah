@@ -1,11 +1,13 @@
 .container {
   display: grid;
   grid-template:
+    "quick-access" auto
     "header" 10rem
     "main" 1fr
     "footer" 8rem /
     1fr;
   background-color: #6ca7ba;
+  /* The icons come from Freepik */
   background-image: url("../public/images/background.svg");
   background-size: contain;
 }
