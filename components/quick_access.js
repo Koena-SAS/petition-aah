@@ -1,21 +1,43 @@
+import styles from "../styles/quick_access.module.scss";
+
 /**
  * Quick access for people using screen reader.
  */
 export default function QuickAccess() {
   return (
-    <div role="region" aria-label="Accès rapide" className="visually-hidden">
-      <ul>
+    <div role="region" aria-label="Accès rapide" className={styles.quickAccess}>
+      <ul className={styles.quickAccess__list}>
         <li>
-          <a href="#header">Aller à l'en-tête</a>
+          <a
+            href="#header"
+            className={`visually-hidden ${styles.quickAccess__a}`}
+          >
+            Aller à l'en-tête
+          </a>
         </li>
         <li>
-          <a href="#content">Aller au contenu textuel</a>
+          <a
+            href="#content"
+            className={`visually-hidden ${styles.quickAccess__a}`}
+          >
+            Aller au contenu textuel
+          </a>
         </li>
         <li>
-          <a href="#counter">Aller au compteur</a>
+          <a
+            href="#counter"
+            className={`visually-hidden ${styles.quickAccess__a}`}
+          >
+            Aller au compteur
+          </a>
         </li>
         <li>
-          <a href="#footer">Aller au pied de page</a>
+          <a
+            href="#footer"
+            className={`visually-hidden ${styles.quickAccess__a}`}
+          >
+            Aller au pied de page
+          </a>
         </li>
       </ul>
     </div>
