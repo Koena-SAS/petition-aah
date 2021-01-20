@@ -9,7 +9,7 @@ export default function SignaturesLayoutBlock({ count }) {
     <p className={styles.counter__container}>
       <span className={styles.counter__text}>Nombre total de signatures :</span>
       <span className={styles.counter__value}>{count.toLocaleString()}</span>
-      <br /> /100 000
+      <span> /100 000</span>
     </p>
   );
 }

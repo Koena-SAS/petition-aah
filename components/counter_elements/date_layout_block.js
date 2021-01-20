@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
  */
 export default function DateLayoutBlock({ remainingTime }) {
   return (
-    <div className={styles.counter__container}>
+    <div className={styles.counter__container} role="paragraph">
       <span className={styles.counter__text}>Temps restant pour signer :</span>
       <div className={styles.counter__units}>
         <div className={styles.counter__unit}>

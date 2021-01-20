@@ -9,15 +9,12 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>
-          Désolidarisation des revenus du conjoint pour le paiement de
-          l'Allocation aux Adultes Handicapés (AAH)
-        </title>
+        <title>Signez pour notre autonomie : compteur de signatures</title>
       </Head>
 
       <QuickAccess />
 
-      <header role="banner" className={styles.header} id="header">
+      <header role="banner" className={styles.header}>
         <Corner />
         <h1 className={styles.title}>Signez pour notre autonomie</h1>
       </header>
@@ -36,7 +33,21 @@ export default function Home() {
       </main>
 
       <footer role="contentinfo" className={styles.footer} id="footer">
-        <a href="https://koena.net">Fait par Koena</a>
+        {" "}
+        <p>
+          Fait par <a href="https://koena.net">Koena</a>{" "}
+          <span className={styles.footer__separation}>|</span> page sous{" "}
+          <a href="https://github.com/Koena-SAS/petition-aah/blob/main/LICENSE">
+            Licence AGPL
+          </a>
+        </p>
+        <p>
+          83% conforme RGAA 4 (testé par Koena le 20/01/2021). Si vous
+          rencontrez des difficultés d'accès, n'hésitez pas,{" "}
+          <a href="https://koena.net/mode-demploi-et-accessibilite-du-site-koena/#contact">
+            contactez-nous pour que nous puissions vous aider !
+          </a>
+        </p>
       </footer>
     </div>
   );

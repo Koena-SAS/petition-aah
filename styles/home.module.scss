@@ -109,22 +109,23 @@
 
 .footer {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   grid-area: footer;
   color: #212e40;
   padding-top: 2rem;
 
-  a:hover,
-  a:focus,
-  a:active {
-    text-decoration: underline;
+  p {
+    margin: 0.2rem;
   }
 
   a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-decoration: underline;
+  }
+
+  &__separation {
+    padding: 0 0.5rem;
   }
 }
 

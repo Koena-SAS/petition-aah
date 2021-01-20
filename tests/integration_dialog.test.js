@@ -23,6 +23,14 @@ it("displays main elements", async () => {
   await waitFor(() => expect(axios.get).toHaveBeenCalledTimes(1));
 });
 
+it("focuses on the first element of the modal when opened", () => {
+  const { getByText } = render(
+    <IntegrationDialog onClose={() => null} open={true} />
+  );
+  const firstElement = getByText(/J-/);
+  expect(firstElement).toHaveFocus();
+});
+
 it("copies iframe code from textarea content when click on copy", async () => {
   document.execCommand = jest.fn();
   const { getByText } = render(

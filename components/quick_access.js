@@ -9,10 +9,10 @@ export default function QuickAccess() {
       <ul className={styles.quickAccess__list}>
         <li>
           <a
-            href="#header"
+            href="#counter"
             className={`visually-hidden ${styles.quickAccess__a}`}
           >
-            Aller à l'en-tête
+            Aller au compteur
           </a>
         </li>
         <li>
@@ -20,15 +20,7 @@ export default function QuickAccess() {
             href="#content"
             className={`visually-hidden ${styles.quickAccess__a}`}
           >
-            Aller au contenu textuel
-          </a>
-        </li>
-        <li>
-          <a
-            href="#counter"
-            className={`visually-hidden ${styles.quickAccess__a}`}
-          >
-            Aller au compteur
+            Aller à l'explication
           </a>
         </li>
         <li>
