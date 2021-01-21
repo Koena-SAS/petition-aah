@@ -50,7 +50,7 @@ export default function Home() {
           </a>
         </p>
         <p className={styles.footer__rgaa}>
-          83% conforme RGAA 4 (testé par Koena le 20/01/2021). Si vous
+          97% conforme RGAA 4 (testé par Koena le 21/01/2021). Si vous
           rencontrez des difficultés d'accès, n'hésitez pas,{" "}
           <a href="https://koena.net/mode-demploi-et-accessibilite-du-site-koena/#contact">
             contactez-nous pour que nous puissions vous aider !
