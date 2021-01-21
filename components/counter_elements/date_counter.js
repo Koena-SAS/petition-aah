@@ -57,20 +57,18 @@ DateCounter.defaultProps = {
 };
 
 export function dateDiff(initialDate, endDate) {
+  if (endDate < initialDate) {
+    return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+  }
   const diff = {};
   let tmp = endDate - initialDate;
-
   tmp = Math.floor(tmp / 1000);
   diff.seconds = tmp % 60;
-
   tmp = Math.floor((tmp - diff.seconds) / 60);
   diff.minutes = tmp % 60;
-
   tmp = Math.floor((tmp - diff.minutes) / 60);
   diff.hours = tmp % 24;
-
   tmp = Math.floor((tmp - diff.hours) / 24);
   diff.days = tmp;
-
   return diff;
 }
