@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import Head from "next/head";
 import styles from "../styles/home.module.scss";
 import Corner from "../components/corner";
@@ -6,13 +7,20 @@ import TextContent from "../components/text_content";
 import CounterContent from "../components/counter_content";
 
 export default function Home() {
+  const [counterFocused, setCounterFocused] = useState(false);
+  useEffect(() => {
+    if (counterFocused) {
+      setCounterFocused(false);
+    }
+  }, [counterFocused]);
+
   return (
     <div className={styles.container}>
       <Head>
         <title>Signez pour notre autonomie : compteur de signatures</title>
       </Head>
 
-      <QuickAccess />
+      <QuickAccess onClickFocus={() => setCounterFocused(true)} />
 
       <header role="banner" className={styles.header}>
         <Corner />
@@ -21,7 +29,7 @@ export default function Home() {
 
       <main role="main" className={styles.main} id="main">
         <section className={styles.counter} id="counter">
-          <CounterContent />
+          <CounterContent focus={counterFocused} />
         </section>
         <section className={styles.content} id="content">
           <h2 className={styles.subtitle}>
@@ -41,7 +49,7 @@ export default function Home() {
             Licence AGPL
           </a>
         </p>
-        <p>
+        <p className={styles.footer__rgaa}>
           83% conforme RGAA 4 (testé par Koena le 20/01/2021). Si vous
           rencontrez des difficultés d'accès, n'hésitez pas,{" "}
           <a href="https://koena.net/mode-demploi-et-accessibilite-du-site-koena/#contact">

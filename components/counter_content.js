@@ -1,12 +1,13 @@
 import { useState } from "react";
 import IntegrationDialog from "./integration_dialog";
 import CounterBanner from "./counter_elements/counter_banner";
+import PropTypes from "prop-types";
 import styles from "../styles/counter_content.module.scss";
 
 /**
  * Date and signatures counter, with integration functionnality.
  */
-export default function CounterContent() {
+export default function CounterContent({ focus }) {
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
@@ -19,7 +20,7 @@ export default function CounterContent() {
   return (
     <>
       <IntegrationDialog open={open} onClose={handleClose} />
-      <CounterBanner color="customDark" />
+      <CounterBanner color="customDark" focus={focus} />
       <button onClick={handleClickOpen} className={styles.integration}>
         <svg
           focusable="false"
@@ -37,3 +38,15 @@ export default function CounterContent() {
     </>
   );
 }
+
+CounterContent.propTypes = {
+  /**
+   * Wether the focus should be placed on the first focusable element
+   * of this component at init or not. By default it's not the case.
+   */
+  focus: PropTypes.bool,
+};
+
+CounterContent.defaultProps = {
+  focus: false,
+};

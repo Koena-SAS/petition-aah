@@ -6,6 +6,10 @@ body {
     Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+:focus {
+  outline: 3px solid;
+}
+
 @font-face {
   font-family: "Luciole";
   src: url("/fonts/Luciole/Luciole-Regular.ttf");
