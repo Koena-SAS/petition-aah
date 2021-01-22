@@ -5,7 +5,7 @@ import Corner from "../components/corner";
 import QuickAccess from "../components/quick_access";
 import TextContent from "../components/text_content";
 import CounterContent from "../components/counter_content";
-import { haveSignaturesReachedTarget } from "./_counter_utils";
+import { haveSignaturesReachedTarget } from "../utils/counter_utils";
 
 export default function Home({ signaturesReached }) {
   const [counterFocused, setCounterFocused] = useState(false);

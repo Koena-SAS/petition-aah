@@ -1,7 +1,7 @@
 import Head from "next/head";
 import IframeContent from "../../components/iframe_content";
 import { useRouter } from "next/router";
-import { haveSignaturesReachedTarget } from "../_counter_utils";
+import { haveSignaturesReachedTarget } from "../../utils/counter_utils";
 
 export default function Iframe({ signaturesReached }) {
   const router = useRouter();
