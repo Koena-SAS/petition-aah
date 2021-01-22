@@ -5,8 +5,9 @@ import Corner from "../components/corner";
 import QuickAccess from "../components/quick_access";
 import TextContent from "../components/text_content";
 import CounterContent from "../components/counter_content";
+import { haveSignaturesReachedTarget } from "./_counter_utils";
 
-export default function Home() {
+export default function Home({ signaturesReached }) {
   const [counterFocused, setCounterFocused] = useState(false);
   useEffect(() => {
     if (counterFocused) {
@@ -29,7 +30,10 @@ export default function Home() {
 
       <main role="main" className={styles.main} id="main">
         <section className={styles.counter} id="counter">
-          <CounterContent focus={counterFocused} />
+          <CounterContent
+            focus={counterFocused}
+            signaturesReached={signaturesReached}
+          />
         </section>
         <section className={styles.content} id="content">
           <h2 className={styles.subtitle}>
@@ -60,3 +64,10 @@ export default function Home() {
     </div>
   );
 }
+
+export const getStaticProps = async () => {
+  let signaturesReached = await haveSignaturesReachedTarget();
+  return {
+    props: { signaturesReached: signaturesReached },
+  };
+};

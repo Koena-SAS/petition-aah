@@ -8,7 +8,11 @@ import IntegrationOptions from "./integration_options";
 /**
  * Modal for iframe integration content.
  */
-export default function IntegrationDialog({ onClose, open }) {
+export default function IntegrationDialog({
+  onClose,
+  open,
+  signaturesReached,
+}) {
   const [format, setFormat] = useState("banner");
   const [color, setColor] = useState("dark");
   const [focus, setFocus] = useState(null);
@@ -37,7 +41,12 @@ export default function IntegrationDialog({ onClose, open }) {
     >
       <div className={styles.container}>
         <div className={styles.container__iframeContent}>
-          <IframeContent format={format} color={color} focus={focus} />
+          <IframeContent
+            format={format}
+            color={color}
+            focus={focus}
+            signaturesReached={signaturesReached}
+          />
         </div>
         <IntegrationOptions
           format={format}
@@ -55,4 +64,8 @@ export default function IntegrationDialog({ onClose, open }) {
 IntegrationDialog.propTypes = {
   onClose: PropTypes.func.isRequired,
   open: PropTypes.bool.isRequired,
+  /**
+   * Wether the target signatures amount have been reached or not.
+   */
+  signaturesReached: PropTypes.bool.isRequired,
 };
