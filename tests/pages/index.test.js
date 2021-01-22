@@ -51,15 +51,3 @@ it("places the focus on counters link when using counter quick link", async () =
   fireEvent.click(counterQuickLink);
   expect(counterLink).toHaveFocus();
 });
-
-fit("places", async () => {
-  const { render } = await getPage({
-    route: "/iframe",
-  });
-  render();
-  const counterLink = screen.getByText(/J-/);
-  expect(counterLink).not.toHaveFocus();
-  const counterQuickLink = screen.getByText("Aller au compteur");
-  fireEvent.click(counterQuickLink);
-  expect(counterLink).toHaveFocus();
-});
