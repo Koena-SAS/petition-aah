@@ -1,27 +1,38 @@
 import { render, fireEvent, act, waitFor } from "@testing-library/react";
 import axios from "axios";
 import CounterContent from "../components/counter_content";
+import { senateResponse } from "./counter_elements/counter_test_utils";
 
 jest.mock("axios");
 
 beforeEach(() => {
-  axios.get.mockResolvedValue({ data: "" });
+  axios.get.mockResolvedValue(senateResponse(500));
 });
 
 afterEach(() => {
   jest.clearAllMocks();
 });
 
-it("displays main elements", () => {
-  const { getByText } = render(<CounterContent />);
+it("displays main elements with signaturesReached to false", () => {
+  const { getByText } = render(<CounterContent signaturesReached={false} />);
   const dateCounter = getByText(/J-/);
   expect(dateCounter).toBeInTheDocument();
   const buttonIntegrate = getByText(/Intégrer/);
   expect(buttonIntegrate).toBeInTheDocument();
 });
 
+it("displays main elements with signaturesReached to true", () => {
+  const { getByText } = render(<CounterContent signaturesReached={true} />);
+  const dateCounter = getByText(/signatures pour notre autonomie : je signe !/);
+  expect(dateCounter).toBeInTheDocument();
+  const buttonIntegrate = getByText(/Intégrer/);
+  expect(buttonIntegrate).toBeInTheDocument();
+});
+
 it("displays integration dialog when click on integrate button", () => {
-  const { getByLabelText, getByText } = render(<CounterContent />);
+  const { getByLabelText, getByText } = render(
+    <CounterContent signaturesReached={false} />
+  );
   const integrationButton = getByText("Intégrer");
   fireEvent.click(integrationButton);
   const dialog = getByLabelText("Intégrer les compteurs sur votre site");
@@ -30,7 +41,7 @@ it("displays integration dialog when click on integrate button", () => {
 
 it("closes integration dialog when click on close button", async () => {
   const { queryByLabelText, getByLabelText, getByText } = render(
-    <CounterContent />
+    <CounterContent signaturesReached={false} />
   );
   const integrationButton = getByText("Intégrer");
   fireEvent.click(integrationButton);

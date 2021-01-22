@@ -1,9 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import PropTypes from "prop-types";
-import axios from "axios";
 import SignaturesLayoutBlock from "./signatures_layout_block";
-
-const MAX_SIGNATURES = 100000;
+import { fetchInitiative, MAX_SIGNATURES } from "./counter_utils";
 
 /**
  * Counter for the signatures of the AAH senate 416 initiative.
@@ -22,12 +20,17 @@ export default function Counter({
   countAnimationFrames,
   countAnimationDelay,
   format,
+  countReverse,
 }) {
   const getInitialValue = () => {
     if (value !== null) {
       return value;
     } else {
-      return format === "block" ? 0 : MAX_SIGNATURES;
+      if (format === "block" || (format === "banner" && !countReverse)) {
+        return 0;
+      } else {
+        return MAX_SIGNATURES;
+      }
     }
   };
 
@@ -39,52 +42,39 @@ export default function Counter({
   const totalRequests = useRef(0);
 
   useEffect(() => {
+    // This variable is needed to avoid memory leak if component is unmounted
+    // while animation is not finished
+    let isMounted = true;
     async function updateInitiative() {
-      // We are querying/parsing the html page to get the count value but the
-      // senate website has an API, and when they update their Decidim instance
-      // we will be able to query the GraphQL API directly to get that value
-      // cf. https://github.com/decidim/decidim/discussions/7080
-      axios
-        .get(`https://petitions.senat.fr/initiatives/i-416`)
-        .then(async (response) => {
-          const parser = new DOMParser();
-          const data = parser.parseFromString(response.data, "text/html");
-          const fetchedValue = parseInt(
-            data.querySelector(
-              "#initiative-416-votes-count span.progress__bar__number"
-            ).textContent
-          );
-          if (format === "block") {
-            await countUpValueProgressively(fetchedValue);
-          } else {
-            await countDownValueProgressively(MAX_SIGNATURES - fetchedValue);
-          }
-          await waitDelay(delay);
-          totalRequests.current += 1;
-          if (totalRequests.current < maxTotalRequests) {
-            setDelay(waitTimeGenerator.current.next().value);
-          }
-        })
-        .catch(() => {});
+      const fetchedValue = await fetchInitiative();
+      if (format === "block" || (format === "banner" && !countReverse)) {
+        await countUpValueProgressively(fetchedValue);
+      } else {
+        await countDownValueProgressively(MAX_SIGNATURES - fetchedValue);
+      }
+      await waitDelay(delay);
+      totalRequests.current += 1;
+      if (totalRequests.current < maxTotalRequests) {
+        setDelay(waitTimeGenerator.current.next().value);
+      }
     }
 
     async function countUpValueProgressively(targetValue) {
-      if (targetValue > countValue) {
-        if (!countAnimationFrames) {
-          setCountValue(targetValue);
-        } else {
-          let increment =
-            (Math.abs(targetValue - countValue) - 0.1) / countAnimationFrames;
-          let i = countValue;
-          const interval = setInterval(() => {
-            if (i > targetValue) {
-              clearInterval(interval);
-            } else {
-              setCountValue(Math.ceil(i));
-            }
-            i += increment;
-          }, countAnimationDelay);
-        }
+      if (!countAnimationFrames) {
+        setCountValue(targetValue);
+      } else {
+        let increment =
+          Math.abs(Math.abs(targetValue - countValue) - 0.1) /
+          countAnimationFrames;
+        let i = countValue;
+        const interval = setInterval(() => {
+          if (i > targetValue || !isMounted) {
+            clearInterval(interval);
+          } else {
+            setCountValue(Math.ceil(i));
+          }
+          i += increment;
+        }, countAnimationDelay);
       }
     }
 
@@ -94,10 +84,11 @@ export default function Counter({
           setCountValue(targetValue);
         } else {
           let decrement =
-            (Math.abs(targetValue - countValue) - 0.1) / countAnimationFrames;
+            Math.abs(Math.abs(targetValue - countValue) - 0.1) /
+            countAnimationFrames;
           let i = countValue;
           const interval = setInterval(() => {
-            if (i < targetValue) {
+            if (i < targetValue || !isMounted) {
               clearInterval(interval);
             } else {
               setCountValue(Math.floor(i));
@@ -111,6 +102,10 @@ export default function Counter({
     if (totalRequests.current < maxTotalRequests) {
       updateInitiative();
     }
+
+    return () => {
+      isMounted = false;
+    };
   }, [delay]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return format === "block" ? (
@@ -156,6 +151,11 @@ Counter.propTypes = {
    * The display format of the date counter.
    */
   format: PropTypes.oneOf(["block", "banner"]).isRequired,
+  /**
+   * Wether the counter should count down instead of counting up, or not.
+   * The value is currently only used for banner format.
+   */
+  countReverse: PropTypes.bool,
 };
 
 Counter.defaultProps = {
@@ -166,6 +166,7 @@ Counter.defaultProps = {
   maxTotalRequests: 150,
   countAnimationFrames: 20,
   countAnimationDelay: 30,
+  countReverse: true,
 };
 
 async function waitDelay(ms) {

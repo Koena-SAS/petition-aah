@@ -7,7 +7,7 @@ import styles from "../styles/counter_content.module.scss";
 /**
  * Date and signatures counter, with integration functionnality.
  */
-export default function CounterContent({ focus }) {
+export default function CounterContent({ focus, signaturesReached }) {
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
@@ -19,8 +19,16 @@ export default function CounterContent({ focus }) {
   };
   return (
     <>
-      <IntegrationDialog open={open} onClose={handleClose} />
-      <CounterBanner color="customDark" focus={focus} />
+      <IntegrationDialog
+        open={open}
+        onClose={handleClose}
+        signaturesReached={signaturesReached}
+      />
+      <CounterBanner
+        color="customDark"
+        focus={focus}
+        signaturesReached={signaturesReached}
+      />
       <button onClick={handleClickOpen} className={styles.integration}>
         <svg
           focusable="false"
@@ -40,6 +48,10 @@ export default function CounterContent({ focus }) {
 }
 
 CounterContent.propTypes = {
+  /**
+   * Wether the target signatures amount have been reached or not.
+   */
+  signaturesReached: PropTypes.bool.isRequired,
   /**
    * Wether the focus should be placed on the first focusable element
    * of this component at init or not. By default it's not the case.

@@ -3,13 +3,22 @@ import CounterBlock from "./counter_elements/counter_block";
 import styles from "../styles/iframe_content.module.scss";
 import PropTypes from "prop-types";
 
-export default function IframeContent({ format, color, focus }) {
+export default function IframeContent({
+  format,
+  color,
+  focus,
+  signaturesReached,
+}) {
   return (
     <div className={styles.container}>
       {format === "block" ? (
         <CounterBlock focus={focus} />
       ) : (
-        <CounterBanner color={color} focus={focus} />
+        <CounterBanner
+          color={color}
+          focus={focus}
+          signaturesReached={signaturesReached}
+        />
       )}
     </div>
   );
@@ -20,6 +29,10 @@ IframeContent.propTypes = {
    * The display format of the date counter.
    */
   format: PropTypes.oneOf(["block", "banner"]).isRequired,
+  /**
+   * Wether the target signatures amount have been reached or not.
+   */
+  signaturesReached: PropTypes.bool.isRequired,
   /**
    * The color of the date counter.
    */

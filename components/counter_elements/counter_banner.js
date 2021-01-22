@@ -7,7 +7,7 @@ import styles from "../../styles/counter_elements/counter_banner.module.scss";
 /**
  * Displays counters information in the banner format.
  */
-export default function CounterBanner({ color, focus }) {
+export default function CounterBanner({ color, focus, signaturesReached }) {
   let countersColor;
   switch (color) {
     case "dark":
@@ -30,6 +30,25 @@ export default function CounterBanner({ color, focus }) {
     }
   }, [focus]);
 
+  let bannerText;
+
+  if (signaturesReached) {
+    bannerText = (
+      <>
+        <SignaturesCounter format="banner" countReverse={false} /> signatures
+        pour notre autonomie : je signe !
+      </>
+    );
+  } else {
+    bannerText = (
+      <>
+        J-
+        <DateCounter format="banner" /> pour obtenir{" "}
+        <SignaturesCounter format="banner" countReverse={true} /> signatures :
+        je signe !
+      </>
+    );
+  }
   return (
     <a
       href="https://petitions.senat.fr/initiatives/i-416"
@@ -38,14 +57,16 @@ export default function CounterBanner({ color, focus }) {
       className={`${styles.counters} ${countersColor}`}
       ref={linkRef}
     >
-      J-
-      <DateCounter format="banner" /> pour obtenir{" "}
-      <SignaturesCounter format="banner" /> signatures : je signe !
+      {bannerText}
     </a>
   );
 }
 
 CounterBanner.propTypes = {
+  /**
+   * Wether the target signatures amount have been reached or not.
+   */
+  signaturesReached: PropTypes.bool.isRequired,
   /**
    * The color of the date counter.
    */

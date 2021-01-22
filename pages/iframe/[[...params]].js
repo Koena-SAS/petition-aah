@@ -1,8 +1,9 @@
 import Head from "next/head";
 import IframeContent from "../../components/iframe_content";
 import { useRouter } from "next/router";
+import { haveSignaturesReachedTarget } from "../_counter_utils";
 
-export default function Iframe() {
+export default function Iframe({ signaturesReached }) {
   const router = useRouter();
 
   let format = null;
@@ -31,7 +32,13 @@ export default function Iframe() {
       </Head>
 
       <main role="main">
-        {format && <IframeContent format={format} color={color} />}
+        {format && (
+          <IframeContent
+            format={format}
+            color={color}
+            signaturesReached={signaturesReached}
+          />
+        )}
       </main>
     </>
   );
@@ -50,7 +57,8 @@ export async function getStaticPaths() {
 }
 
 export const getStaticProps = async () => {
+  let signaturesReached = await haveSignaturesReachedTarget();
   return {
-    props: {},
+    props: { signaturesReached: signaturesReached },
   };
 };
