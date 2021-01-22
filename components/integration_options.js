@@ -20,10 +20,31 @@ export default function IntegrationOptions({
     const title = '"Signez pour l\'indépendance des personnes handicapées"';
     if (format === "block") {
       return `<iframe src="${window.location.href}iframe/block/" title=${title} style="border: 0; width: 335px; height: 387px;"></iframe>`;
-    } else if (format === "banner" && color === "light") {
-      return `<iframe src="${window.location.href}iframe/banner/light/" title=${title} style="border: 0; width: 100%; height: 56px;"></iframe>`;
-    } else {
-      return `<iframe src="${window.location.href}iframe/banner/dark/" title=${title} style="border: 0; width: 100%; height: 56px;"></iframe>`;
+    } else if (format === "banner") {
+      const css = `<style>
+  .petition-counters {
+    border: 0;
+    width: 100%;
+    height: 56px;
+  }
+  @media (max-width: 676px) {
+    .petition-counters {
+      height: 88px;
+    }
+  }
+  @media (max-width: 343px) {
+    .petition-counters {
+      height: 108px;
+    }
+  }
+</style>`;
+      if (color === "light") {
+        return `<iframe src="${window.location.href}iframe/banner/light/" title=${title} class="petition-counters"></iframe>
+${css}`;
+      } else {
+        return `<iframe src="${window.location.href}iframe/banner/dark/" title=${title} class="petition-counters"></iframe>
+${css}`;
+      }
     }
   };
 
@@ -37,9 +58,9 @@ export default function IntegrationOptions({
 
   return (
     <div className={styles.container__integration}>
-      <p className={styles.container__text} id="integration-dialog-label">
+      <h2 className={styles.container__text} id="integration-dialog-label">
         Intégrer les compteurs sur votre site
-      </p>
+      </h2>
       <div role="radiogroup" aria-label="Format" className={styles.formats}>
         <Radio
           name="format"
@@ -100,8 +121,12 @@ export default function IntegrationOptions({
       ) : (
         ""
       )}
+      <label className={styles.container__textAreaLabel} htmlFor="iframe-code">
+        Code à copier et à intégrer sur votre site :
+      </label>
       <textarea
         value={iframeCommand}
+        id="iframe-code"
         readOnly
         ref={textArea}
         className={styles.container__code}

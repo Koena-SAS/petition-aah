@@ -1,18 +1,24 @@
 import styles from "../styles/quick_access.module.scss";
+import PropTypes from "prop-types";
 
 /**
  * Quick access for people using screen reader.
  */
-export default function QuickAccess() {
+export default function QuickAccess({ onClickFocus }) {
+  const handleClick = (event) => {
+    event.preventDefault();
+    onClickFocus();
+  };
   return (
     <div role="region" aria-label="Accès rapide" className={styles.quickAccess}>
       <ul className={styles.quickAccess__list}>
         <li>
           <a
-            href="#header"
+            href="#counter"
             className={`visually-hidden ${styles.quickAccess__a}`}
+            onClick={handleClick}
           >
-            Aller à l'en-tête
+            Aller au compteur
           </a>
         </li>
         <li>
@@ -20,15 +26,7 @@ export default function QuickAccess() {
             href="#content"
             className={`visually-hidden ${styles.quickAccess__a}`}
           >
-            Aller au contenu textuel
-          </a>
-        </li>
-        <li>
-          <a
-            href="#counter"
-            className={`visually-hidden ${styles.quickAccess__a}`}
-          >
-            Aller au compteur
+            Aller à l'explication
           </a>
         </li>
         <li>
@@ -43,3 +41,10 @@ export default function QuickAccess() {
     </div>
   );
 }
+
+QuickAccess.propTypes = {
+  /**
+   * Function executed on counter link click, instead of the default link behavior.
+   */
+  onClickFocus: PropTypes.func.isRequired,
+};

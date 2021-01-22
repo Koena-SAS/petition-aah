@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Dialog from "@material-ui/core/Dialog";
 import IframeContent from "./iframe_content";
 import styles from "../styles/integration_dialog.module.scss";
@@ -11,6 +11,19 @@ import IntegrationOptions from "./integration_options";
 export default function IntegrationDialog({ onClose, open }) {
   const [format, setFormat] = useState("banner");
   const [color, setColor] = useState("dark");
+  const [focus, setFocus] = useState(null);
+
+  useEffect(() => {
+    if (open) {
+      setFocus(true);
+    }
+  }, [open]);
+
+  useEffect(() => {
+    if (focus) {
+      setFocus(false);
+    }
+  }, [focus]);
 
   return (
     <Dialog
@@ -24,7 +37,7 @@ export default function IntegrationDialog({ onClose, open }) {
     >
       <div className={styles.container}>
         <div className={styles.container__iframeContent}>
-          <IframeContent format={format} color={color} />
+          <IframeContent format={format} color={color} focus={focus} />
         </div>
         <IntegrationOptions
           format={format}
