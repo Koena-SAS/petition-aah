@@ -27,7 +27,7 @@ export default function DateCounter({
         setRemainingTime(dateDiff(now, expirationDate));
       }
     }, updateInterval * 1000);
-  });
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return format === "block" ? (
     <DateLayoutBlock remainingTime={remainingTime} />
