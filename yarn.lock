@@ -4413,10 +4413,10 @@ negotiator@0.6.2:
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.2.tgz#feacf7ccf525a77ae9634436a64883ffeca346fb"
   integrity sha512-hZXc7K2e+PgeI1eDBe/10Ard4ekbfrrqG8Ep+8Jmf4JID2bNg7NvCPOZN+kfF574pFQI7mum2AUqDidoKqcTOw==
 
-next-page-tester@^0.24.0:
-  version "0.24.0"
-  resolved "https://registry.yarnpkg.com/next-page-tester/-/next-page-tester-0.24.0.tgz#a5271bd88c02076c0831e2fa392bc7c8269b9977"
-  integrity sha512-2qmc/8EwpmE2v+GjjK1s0aILt/m5LuyJAha7UT+Idn/YGg9Mek6xbhmz4qYEm5CIhA6Aa9vyyPHUOJ4KBwOXmw==
+next-page-tester@^0.24.1:
+  version "0.24.1"
+  resolved "https://registry.yarnpkg.com/next-page-tester/-/next-page-tester-0.24.1.tgz#cceb4eb236f3f59f7dc8628b343e359acb0a1f19"
+  integrity sha512-XAq3TIXvjmtfawTc75JcwC1NqURogW3DXHEsQODT6r6QHGZP3EuwQSUmeJp8kJVFhKJXen2VqYn4tzbaG3aIKg==
   dependencies:
     "@types/express" "^4.17.8"
     cookie "^0.4.1"
