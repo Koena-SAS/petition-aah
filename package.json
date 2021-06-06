@@ -17,7 +17,7 @@
     "@material-ui/icons": "^4.11.2",
     "axios": "^0.21.1",
     "browserslist": "^4.16.5",
-    "hosted-git-info": "^2.8.9",
+    "hosted-git-info": "^4.0.2",
     "jsdom": "^16.5.3",
     "next": "10.2.3",
     "patch-package": "^6.4.7",
