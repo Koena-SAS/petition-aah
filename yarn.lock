@@ -2584,10 +2584,10 @@ eslint-plugin-react@^7.25.1:
     resolve "^2.0.0-next.3"
     string.prototype.matchall "^4.0.5"
 
-eslint-plugin-testing-library@^4.10.1:
-  version "4.10.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-testing-library/-/eslint-plugin-testing-library-4.10.1.tgz#f1f2867697a4dbdf9b14f8f5f594435c72233960"
-  integrity sha512-pISDdbDBTAkd6nnAoMIMLsU91UBh6l3UX5n0FdUjGM0D92WLw+z/0WR4iptO06G2UhkwcTNl1r/K4huS3/gsXA==
+eslint-plugin-testing-library@^4.12.0:
+  version "4.12.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-testing-library/-/eslint-plugin-testing-library-4.12.0.tgz#51a25a5897a88cfe4a2f61c7036944339103efa1"
+  integrity sha512-kQQlBDvtw5mZeb59QNoe85hz5HbQ2x1xw+IJIKQw4XoCcd/VHNXqiNIcp0XfItmxmfzFfcOAUiW9a2WCJ14Fvw==
   dependencies:
     "@typescript-eslint/experimental-utils" "^4.24.0"
 
@@ -4459,10 +4459,10 @@ negotiator@0.6.2:
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.2.tgz#feacf7ccf525a77ae9634436a64883ffeca346fb"
   integrity sha512-hZXc7K2e+PgeI1eDBe/10Ard4ekbfrrqG8Ep+8Jmf4JID2bNg7NvCPOZN+kfF574pFQI7mum2AUqDidoKqcTOw==
 
-next-page-tester@^0.27.2:
-  version "0.27.2"
-  resolved "https://registry.yarnpkg.com/next-page-tester/-/next-page-tester-0.27.2.tgz#548d7a14751484b83b17abf3e419f98a703d54aa"
-  integrity sha512-waXxYeDeMVZPUv5cVKdIIkwj3ePkwSPrNSg8seHCQ+pTVV9Mpm/cfp9jsb8I2AZTfRstocD/Amr+c/SP14TE1Q==
+next-page-tester@^0.28.0:
+  version "0.28.0"
+  resolved "https://registry.yarnpkg.com/next-page-tester/-/next-page-tester-0.28.0.tgz#d275fad11dfa2ab8feab0f3108cd8e71ab029374"
+  integrity sha512-ygng3KwGStbF72XNoKOBS2EfqtvGv0VxTrUIvjzsfcWa6otqRs8KUCdXErvh91krR77T8796uH5uu/uj+bS94Q==
   dependencies:
     "@types/express" "^4.17.12"
     cookie "^0.4.1"
