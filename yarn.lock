@@ -2461,10 +2461,10 @@ eslint-module-utils@^2.6.2:
     debug "^3.2.7"
     pkg-dir "^2.0.0"
 
-eslint-plugin-flowtype@^5.9.0:
-  version "5.9.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-flowtype/-/eslint-plugin-flowtype-5.9.0.tgz#8d2d81d3d79bb53470ed62b97409b31684757e30"
-  integrity sha512-aBUVPA5Wt0XyuV3Wg8flfVqYJR6yR2nRLuyPwoTjCg5VTk4G1X1zQpInr39tUGgRxqrA+d+B9GYK4+/d1i0Rfw==
+eslint-plugin-flowtype@^5.9.2:
+  version "5.9.2"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-flowtype/-/eslint-plugin-flowtype-5.9.2.tgz#aac08cd26ee4da79cba0e40c3877bb4d96a74ebc"
+  integrity sha512-qxE/eo9DCN7800MIB/O1ToOiFuOPOlaMJWQY2BEm69oY7RCm3s2X1z4CdgtFvDDWf9RSSugZm1KRhdBMBueKbg==
   dependencies:
     lodash "^4.17.15"
     string-natural-compare "^3.0.1"
@@ -3122,10 +3122,10 @@ human-signals@^2.1.0:
   resolved "https://registry.yarnpkg.com/human-signals/-/human-signals-2.1.0.tgz#dc91fcba42e4d06e4abaed33b3e7a3c02f514ea0"
   integrity sha512-B4FFZ6q/T2jhhksgkbEW3HBvWIfDW85snkQgawt07S7J5QXTk6BkNV+0yAeZrM5QpMAdYlocGoljn0sJ/WQkFw==
 
-husky@^7.0.1:
-  version "7.0.1"
-  resolved "https://registry.yarnpkg.com/husky/-/husky-7.0.1.tgz#579f4180b5da4520263e8713cc832942b48e1f1c"
-  integrity sha512-gceRaITVZ+cJH9sNHqx5tFwbzlLCVxtVZcusME8JYQ8Edy5mpGDOqD8QBCdMhpyo9a+JXddnujQ4rpY2Ff9SJA==
+husky@^7.0.2:
+  version "7.0.2"
+  resolved "https://registry.yarnpkg.com/husky/-/husky-7.0.2.tgz#21900da0f30199acca43a46c043c4ad84ae88dff"
+  integrity sha512-8yKEWNX4z2YsofXAMT7KvA1g8p+GxtB1ffV8XtpAEGuXNAbCV5wdNKH+qTpw8SM9fh4aMPDR+yQuKfgnreyZlg==
 
 hyphenate-style-name@^1.0.3:
   version "1.0.4"
@@ -5255,10 +5255,10 @@ safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
 
-sass@^1.37.5:
-  version "1.37.5"
-  resolved "https://registry.yarnpkg.com/sass/-/sass-1.37.5.tgz#f6838351f7cc814c4fcfe1d9a20e0cabbd1e7b3c"
-  integrity sha512-Cx3ewxz9QB/ErnVIiWg2cH0kiYZ0FPvheDTVC6BsiEGBTZKKZJ1Gq5Kq6jy3PKtL6+EJ8NIoaBW/RSd2R6cZOA==
+sass@^1.38.2:
+  version "1.38.2"
+  resolved "https://registry.yarnpkg.com/sass/-/sass-1.38.2.tgz#970045d9966180002a8c8f3820fc114cddb42822"
+  integrity sha512-Bz1fG6qiyF0FX6m/I+VxtdVKz1Dfmg/e9kfDy2PhWOkq3T384q2KxwIfP0fXpeI+EyyETdOauH+cRHQDFASllA==
   dependencies:
     chokidar ">=3.0.0 <4.0.0"
 
