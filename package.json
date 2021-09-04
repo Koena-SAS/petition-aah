@@ -21,6 +21,7 @@
     "jsdom": "^16.6.0",
     "next": "10.2.3",
     "patch-package": "^6.4.7",
+    "path-parse": "^1.0.7",
     "postinstall-postinstall": "^2.1.0",
     "prop-types": "^15.7.2",
     "react": "17.0.2",
