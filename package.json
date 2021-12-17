@@ -15,7 +15,7 @@
   "dependencies": {
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
-    "axios": "^0.21.1",
+    "axios": "^0.24.0",
     "browserslist": "^4.19.1",
     "hosted-git-info": "^4.0.2",
     "jsdom": "^16.6.0",
@@ -39,7 +39,7 @@
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-react-app": "^6.0.0",
-    "eslint-plugin-flowtype": "^5.9.2",
+    "eslint-plugin-flowtype": "^5.10.0",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-jest": "^24.4.0",
     "eslint-plugin-jsx-a11y": "^6.4.1",
