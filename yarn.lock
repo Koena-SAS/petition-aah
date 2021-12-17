@@ -1030,10 +1030,10 @@
     "@types/qs" "*"
     "@types/range-parser" "*"
 
-"@types/express@^4.17.12":
-  version "4.17.12"
-  resolved "https://registry.yarnpkg.com/@types/express/-/express-4.17.12.tgz#4bc1bf3cd0cfe6d3f6f2853648b40db7d54de350"
-  integrity sha512-pTYas6FrP15B1Oa0bkN5tQMNqOcVXa9j4FTFtO8DWI9kppKib+6NJtfTOOLcwxuuYvcX2+dVG6et1SxW/Kc17Q==
+"@types/express@^4.17.13":
+  version "4.17.13"
+  resolved "https://registry.yarnpkg.com/@types/express/-/express-4.17.13.tgz#a76e2995728999bab51a33fabce1d705a3709034"
+  integrity sha512-6bSZTPaTIACxn48l50SR+axgrqm6qXFIxrdAKaG6PaJk3+zuUr35hBlgT7vOmJcum+OEaIBLtHV/qloEAFITeA==
   dependencies:
     "@types/body-parser" "*"
     "@types/express-serve-static-core" "^4.17.18"
@@ -4513,12 +4513,12 @@ negotiator@0.6.2:
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.2.tgz#feacf7ccf525a77ae9634436a64883ffeca346fb"
   integrity sha512-hZXc7K2e+PgeI1eDBe/10Ard4ekbfrrqG8Ep+8Jmf4JID2bNg7NvCPOZN+kfF574pFQI7mum2AUqDidoKqcTOw==
 
-next-page-tester@^0.27.2:
-  version "0.27.2"
-  resolved "https://registry.yarnpkg.com/next-page-tester/-/next-page-tester-0.27.2.tgz#548d7a14751484b83b17abf3e419f98a703d54aa"
-  integrity sha512-waXxYeDeMVZPUv5cVKdIIkwj3ePkwSPrNSg8seHCQ+pTVV9Mpm/cfp9jsb8I2AZTfRstocD/Amr+c/SP14TE1Q==
+next-page-tester@^0.30.0:
+  version "0.30.0"
+  resolved "https://registry.yarnpkg.com/next-page-tester/-/next-page-tester-0.30.0.tgz#6dea40c91f2e93dcfbbd64d8f53b0fa3cadaf06c"
+  integrity sha512-dUEGusrwMjl77XII2GQF0ULMlBjCksXH4/GFejLRPIbpr/qChU/hTN+flQRdryYPRFW44ATVsgQet4HMlPdauw==
   dependencies:
-    "@types/express" "^4.17.12"
+    "@types/express" "^4.17.13"
     cookie "^0.4.1"
     dotenv "^8.2.0"
     dotenv-expand "^5.1.0"
