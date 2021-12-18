@@ -73,7 +73,7 @@ it("copies iframe code from textarea content when click on copy", async () => {
 });
 
 it("displays block counters when clicking on correct format option", async () => {
-  const { getByText, getByLabelText, queryByText } = render(
+  const { getByText, getByLabelText, queryByText, findByText } = render(
     <IntegrationDialog
       onClose={() => null}
       open={true}
@@ -85,7 +85,7 @@ it("displays block counters when clicking on correct format option", async () =>
   const formatOption = getByLabelText("Bloc");
   fireEvent.click(formatOption);
   expect(queryByText(/J-/)).not.toBeInTheDocument();
-  await waitFor(() => expect(getByText(/jours/)).toBeInTheDocument());
+  expect(await findByText(/jours/)).toBeInTheDocument();
   await waitFor(() => expect(axios.get).toHaveBeenCalledTimes(2));
 });
 
