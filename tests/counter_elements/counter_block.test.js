@@ -14,5 +14,6 @@ it("displays main elements", () => {
 it("focuses on the first focusable element if focus is true", () => {
   const { getByText } = render(<CounterBlock focus={true} />);
   const firstElement = getByText(/Signez la pétition/);
+  // eslint-disable-next-line testing-library/no-node-access
   expect(firstElement.closest("a")).toHaveFocus();
 });

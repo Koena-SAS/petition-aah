@@ -50,7 +50,6 @@ it("closes integration dialog when click on close button", async () => {
   const closeButton = getByText("Fermer");
   fireEvent.click(closeButton);
   await act(async () => {
-    fireEvent.click(closeButton);
     await new Promise((r) => setTimeout(r, 250));
   });
   dialog = queryByLabelText("Intégrer les compteurs sur votre site");
