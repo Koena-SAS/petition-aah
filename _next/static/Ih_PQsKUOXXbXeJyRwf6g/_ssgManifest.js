@@ -1,0 +1,1 @@
+self.__SSG_MANIFEST=new Set(["\u002F","\u002Fiframe\u002F[[...params]]"]);self.__SSG_MANIFEST_CB&&self.__SSG_MANIFEST_CB()
