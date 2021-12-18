@@ -2,7 +2,7 @@
 
 Il s'agit du code source d'une page ayant pour but de diffuser la [pétition pour la _Désolidarisation des revenus du conjoint pour le paiement de l'Allocation aux Adultes Handicapés (AAH)_ sur le site du sénat](https://petitions.senat.fr/initiatives/i-416).
 
-Une version en ligne est disponible sur : https://compteur.signezpournotreautonomie.fr
+Une version en ligne est [disponible sur Github Pages](https://koena-sas.github.io/petition-aah/).
 
 Le projet est fait avec [Next.js](https://nextjs.org/). La page générée est entièrement statique et peut donc être hébergée sur n'improrte quel serveur web.
 
