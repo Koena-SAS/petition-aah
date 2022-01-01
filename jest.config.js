@@ -4,7 +4,7 @@ module.exports = {
     "<rootDir>/out/",
     "<rootDir>/node_modules/",
   ],
-  "testEnvironment" : "jsdom",
+  testEnvironment: "<rootDir>/tests/custom-test-env.js",
   setupFilesAfterEnv: ["<rootDir>/setupTests.js"],
   transform: {
     "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
