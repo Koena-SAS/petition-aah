@@ -25,7 +25,7 @@
     "patch-package": "^6.4.7",
     "path-parse": "^1.0.7",
     "postinstall-postinstall": "^2.1.0",
-    "prop-types": "^15.7.2",
+    "prop-types": "^15.8.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "sass": "^1.45.2",
