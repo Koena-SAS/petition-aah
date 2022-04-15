@@ -22,7 +22,7 @@
     "axios": "^0.26.0",
     "browserslist": "^4.19.3",
     "follow-redirects": "^1.14.9",
-    "hosted-git-info": "^4.1.0",
+    "hosted-git-info": "^5.0.0",
     "jsdom": "^19.0.0",
     "nanoid": "^3.3.1",
     "next": "11.1.3",
