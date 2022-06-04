@@ -1,9 +1,9 @@
-const Environment = require("jest-environment-jsdom");
+const { TestEnvironment } = require("jest-environment-jsdom");
 
 // Custom test environment copied from https://github.com/inrupt/solid-client-authn-js/blob/main/tests/environment/customEnvironment.js
 // in order to add TextEncoder to jsdom.
 
-module.exports = class CustomTestEnvironment extends Environment {
+module.exports = class CustomTestEnvironment extends TestEnvironment {
   async setup() {
     await super.setup();
     if (typeof this.global.TextEncoder === "undefined") {
